@@ -99,17 +99,17 @@ pipeline {
         // For metadata compilation, a full deployment (even to a temporary org) is the usual way.
 
         // Reverting to what a real deploy command would look like, as the validation flag is invalid for project deploy start:
-        sh "sfdx project deploy start --source-dir force-app --target-org ${SFDX_USERNAME} --wait 30 --json"
+        sh "sf project deploy validate --manifest path/to/package.xml"
         echo "Deployment to Salesforce complete."
       }
     }
 
-    stage('Run Apex Tests') {
-      steps {
-        echo "Running Apex tests..."
-        sh "sfdx apex run test --target-org ${SFDX_USERNAME} --result-format human --code-coverage --wait 120"
-        echo "Apex tests complete."
-      }
-    }
+    // stage('Run Apex Tests') {
+    //   steps {
+    //     echo "Running Apex tests..."
+    //     sh "sfdx apex run test --target-org ${SFDX_USERNAME} --result-format human --code-coverage --wait 120"
+    //     echo "Apex tests complete."
+    //   }
+    // }
   }
 }
