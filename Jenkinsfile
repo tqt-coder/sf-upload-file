@@ -26,7 +26,7 @@ pipeline {
       steps {
         echo "Starting validation deployment to Salesforce using package.xml..."
         // Ensure your package.xml path is correct relative to your workspace
-        sh "sf project deploy validate --manifest force-app/main/default/package.xml --target-org ${SFDX_USERNAME} --wait 10"
+        sh "sf project deploy validate --manifest ./manifest/package.xml --target-org ${SFDX_USERNAME} --wait 10"
         echo "Validation complete."
       }
     }
