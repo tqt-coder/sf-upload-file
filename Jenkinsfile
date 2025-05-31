@@ -21,7 +21,6 @@ pipeline {
         """
       }
     }
-
     stage('Validate Deployment') {
       steps {
         echo "Starting validation deployment to Salesforce..."
