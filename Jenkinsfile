@@ -6,7 +6,6 @@ pipeline {
     SFDX_JWT_KEY = '/var/jenkins_home/.ssh/server.key'
     SFDX_USERNAME = 'cicd@gmail.com.dev'
   }
-
   stages {
     stage('Authenticate with Salesforce') {
       steps {
