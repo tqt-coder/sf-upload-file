@@ -25,7 +25,7 @@ pipeline {
       steps {
         echo "Starting validation deployment to Salesforce..."
         
-        sh "sf project deploy validate ./manifest/package.xml --target-org ${SFDX_USERNAME} --no-run-tests"
+        sh "sf project deploy validate -x ./manifest/package.xml --target-org ${SFDX_USERNAME} --no-run-tests"
         echo "Validate to Salesforce complete."
       }
     }
