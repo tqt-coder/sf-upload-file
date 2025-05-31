@@ -21,21 +21,21 @@ pipeline {
       }
     }
     
-    stage('Validate Deployment') {
-      steps {
-        echo "Starting validation deployment to Salesforce..."
-        
-        sh "sf project deploy validate -x ./manifest/package.xml --target-org ${SFDX_USERNAME} --no-run-tests"
-        echo "Validate to Salesforce complete."
-      }
-    }
-
-    // stage('Deployment') {
+    // stage('Validate Deployment') {
     //   steps {
-    //     echo "Starting deploy package.xml to Org...."
-    //     sh "sf project deploy start -x ./manifest/package.xml --target-org ${SFDX_USERNAME} --wait 10"
-    //     echo "Deployment complete."
+    //     echo "Starting validation deployment to Salesforce..."
+        
+    //     sh "sf project deploy validate -x ./manifest/package.xml --target-org ${SFDX_USERNAME} --no-run-tests"
+    //     echo "Validate to Salesforce complete."
     //   }
     // }
+
+    stage('Deployment') {
+      steps {
+        echo "Starting deploy package.xml to Org...."
+        sh "sf project deploy start -x ./manifest/package.xml --target-org ${SFDX_USERNAME} --wait 10"
+        echo "Deployment complete."
+      }
+    }
   }
 }
