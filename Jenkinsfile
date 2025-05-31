@@ -33,7 +33,7 @@ pipeline {
     stage('Deployment') {
       steps {
         echo "Starting deploy package.xml to Org...."
-        sh "sf project deploy start -x ./manifest/package.xml --target-org ${SFDX_USERNAME} -c --wait 10"
+        sh "sf project deploy start -x ./manifest/package.xml --target-org ${SFDX_USERNAME} --wait 10"
         echo "Deployment complete."
       }
     }
